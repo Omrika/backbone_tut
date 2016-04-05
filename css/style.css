@@ -1,0 +1,18 @@
+label {
+	margin-right: 107px;
+}
+
+#shirt-size {
+	margin-top: 30px;
+}
+
+select.form-control {
+	margin-bottom: 10px;
+	width: 84px;
+}
+
+h1.sale {
+	font-size: 46px;
+    text-align: center;
+    font-family: cursive;
+}

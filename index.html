@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Backbone</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+	<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div class="jumbotron">
+			<!-- <h1 class="sale">For Sale</h1> -->
+		</div>
+
+	  <div class="row">
+	  <div class="col-md-8 col-md-offset-2">
+		  <h2></h2>
+		   <form id="shirt-form">
+			   <div id="shirt-style">
+				   <label><img src="#" />
+				   	<br><input type="radio" name="style" value="dino">All My Friends Are Dead
+				   	</label>
+				   
+				   <label>
+				   <img src="#" /><br>
+				   <input type="radio" name="style" value="down">I'm Down
+				   </label>
+				   
+				   <label><img src="#" /><br>
+				   <input type="radio" name="style" value="locals">Eat Locals
+				   </label>
+			   </div>
+			   <div id="shirt-size">
+				   <select class="form-control" name="size">
+					   <option value="x-small">X-Small</option>
+					   <option value="small">Small</option>
+					   <option value="medium">Medium</option>
+					   <option value="large">Large</option>
+					   <option value="x-large">X-Large</option>
+				   </select>
+			   </div>
+			   <div id="button-container">
+			   		<button class="btn" type="submit">Purchase</button>
+			   </div>
+		   </form>
+   </div>
+   </div>
+	</div>
+	<script type="text/javascript">
+		var Movie = Backbone.Model.extend();
+		
+		var MovieView = Backbone.View.extend({
+			initialize: function() {
+				console.log( 'testing view' );
+			},
+
+			render: function() {
+				console.log( 'viewss man' );
+				this.$el.append( 'Some key: ' + this.model.get('text'));
+				$('#container').html(this.$el.html());
+				return this;
+			}	
+		});
+
+		$(function() {
+			var movie = new Movie({ text: 'This is some value. Its windy out'});
+			var movieView = new MovieView({ model: movie})
+			movieView.render();
+		});
+	</script>
+</body>
+</html>
